@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>アラート詳細</title>
+    <style>
+        dl { display: grid; grid-template-columns: max-content auto; }
+        dt { grid-column-start: 1; font-weight: bold; }
+        dd { grid-column-start: 2; margin-left: 1em; }
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            background-color: #f0f0f0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        form {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>アラート詳細</h1>
+    <dl>
+        <dt>ID:</dt>
+        <dd>{{ alert[0] }}</dd>
+
+        <dt>件名:</dt>
+        <dd>{{ alert[1] }}</dd>
+
+        <dt>本文:</dt>
+        <dd><pre>{{ alert[2] }}</pre></dd>
+
+        <dt>識別子:</dt>
+        <dd>{{ alert[3] }}</dd>
+
+        <dt>緊急度:</dt>
+        <dd>{{ alert[4] }}</dd>
+
+        <dt>ステータス:</dt>
+        <dd>{{ alert[5] }}</dd>
+    </dl>
+
+    <form action="?action=details&id={{ alert[0] }}" method="post">
+        <label for="new_status">ステータスを更新:</label>
+        <select name="new_status" id="new_status">
+            {% for value, label in status_options %}
+                <option value="{{ value }}" {% if alert[5] == label %}selected{% endif %}>{{ label }}</option>
+            {% endfor %}
+        </select>
+        <input type="hidden" name="update_status" value="1">
+        <input type="submit" value="更新">
+    </form>
+
+    <p><a href="?action=list">一覧に戻る</a></p>
+</body>
+</html>

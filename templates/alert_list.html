@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>アラート一覧</title>
+    <style>
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid black; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <h1>アラート一覧</h1>
+    {% if alerts %}
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>件名</th>
+                <th>識別子</th>
+                <th>緊急度</th>
+                <th>ステータス</th>
+                <th>詳細</th>
+            </tr>
+            {% for alert in alerts %}
+            <tr>
+                <td>{{ alert[0] }}</td>
+                <td>{{ alert[1] }}</td>
+                <td>{{ alert[3] }}</td>
+                <td>{{ alert[4] }}</td>
+                <td>{{ alert[5] }}</td>
+                <td><a href="?action=details&id={{ alert[0] }}">詳細を見る</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>アラートが登録されていません。</p>
+    {% endif %}
+</body>
+</html>
