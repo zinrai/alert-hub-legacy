@@ -49,7 +49,7 @@ $ curl -X POST "http://localhost:8000/alert_cgi.py" \
 Access the following URL in your browser:
 
 ```
-http://localhost:8000/cgi-bin/alert_list_details.py?action=list
+http://localhost:8000/alert_list_details.py?action=list
 ```
 
 ## Viewing Alert Details
@@ -57,7 +57,7 @@ http://localhost:8000/cgi-bin/alert_list_details.py?action=list
 Access the following URL in your browser (replace `<alert_id>` with the actual alert ID):
 
 ```
-http://localhost:8000/cgi-bin/alert_list_details.py?action=details&id=<alert_id>
+http://localhost:8000/alert_list_details.py?action=details&id=<alert_id>
 ```
 
 ## License
