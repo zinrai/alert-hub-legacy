@@ -8,6 +8,13 @@ https://docs.python.org/3/library/cgi.html
 
 ## Installing Dependencies
 
+Create and activate a virtual environment:
+
+```
+$ python3 -m venv venv
+$ source venv/bin/activate
+```
+
 Install the required packages using the following command:
 
 ```bash
